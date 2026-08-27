@@ -1,0 +1,45 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------------< com.learn:es >----------------------------
+[INFO] Building es 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ es ---
+[INFO] Deleting c:\Dharan\Learning\elastic search\learn\target
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ es ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 1 resource
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ es ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to c:\Dharan\Learning\elastic search\learn\target\classes
+[INFO] /c:/Dharan/Learning/elastic search/learn/src/main/java/com/learn/es/service/ElasticsearchService.java: c:\Dharan\Learning\elastic search\learn\src\main\java\com\learn\es\service\ElasticsearchService.java uses unchecked or unsafe operations.
+[INFO] /c:/Dharan/Learning/elastic search/learn/src/main/java/com/learn/es/service/ElasticsearchService.java: Recompile with -Xlint:unchecked for details.
+[INFO] Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /c:/Dharan/Learning/elastic search/learn/src/main/java/com/learn/es/service/ElasticsearchService.java:[43,42] incompatible types: java.util.List<co.elastic.clients.util.NamedValue<co.elastic.clients.elasticsearch.core.search.HighlightField>> cannot be converted to java.util.Map<java.lang.String,co.elastic.clients.elasticsearch.core.search.HighlightField>
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.166 s
+[INFO] Finished at: 2026-02-14T00:16:01+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:compile (default-compile) on project es: Compilation failure
+[ERROR] /c:/Dharan/Learning/elastic search/learn/src/main/java/com/learn/es/service/ElasticsearchService.java:[43,42] incompatible types: java.util.List<co.elastic.clients.util.NamedValue<co.elastic.clients.elasticsearch.core.search.HighlightField>> cannot be converted to java.util.Map<java.lang.String,co.elastic.clients.elasticsearch.core.search.HighlightField>
+[ERROR] 
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+DONE 
