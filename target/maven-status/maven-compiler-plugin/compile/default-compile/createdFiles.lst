@@ -1,0 +1,6 @@
+com\learn\test\document\UserDocument$UserDocumentBuilder.class
+com\learn\EsApplication.class
+com\learn\test\service\UserEsService.class
+com\learn\test\document\UserDocument.class
+com\learn\test\repository\UserRepository.class
+com\learn\test\constant\UserRegistrationProcessConstants.class

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteRepositoriesConfiguration">
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://repo.maven.apache.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="flowable" />
+      <option name="name" value="Flowable Public Repository" />
+      <option name="url" value="https://artifact.flowable.org/artifactory/flowable-releases" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="flowable-releases" />
+      <option name="name" value="Flowable Release Repository" />
+      <option name="url" value="https://artifacts.flowable.com/artifactory/flowable-releases/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="flowable-repo" />
+      <option name="name" value="Flowable Repository" />
+      <option name="url" value="https://repository.flowable.com/nexus/content/repositories/flowable-releases/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Maven Central repository" />
+      <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jboss.community" />
+      <option name="name" value="JBoss Community repository" />
+      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="central" />
+      <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="codelibs.org" />
+      <option name="name" value="CodeLibs Repository" />
+      <option name="url" value="https://maven.codelibs.org/" />
+    </remote-repository>
+  </component>
+</project>

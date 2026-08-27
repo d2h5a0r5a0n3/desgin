@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions
+        xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:flowable="http://flowable.org/bpmn"
+        xsi:schemaLocation="
+           http://www.omg.org/spec/BPMN/20100524/MODEL
+           https://www.omg.org/spec/BPMN/20100501/BPMN20.xsd"
+        targetNamespace="com.learn.user">
+
+    <process id="userRegistrationProcess"
+             name="User Registration Process"
+             isExecutable="true">
+
+        <documentation>
+            Complete lifecycle: Register -> Create -> Verify Mail -> Login -> OTP -> Activate
+        </documentation>
+
+        <!-- START -->
+        <startEvent id="start" name="Start Registration"/>
+
+        <!-- USER REGISTRATION -->
+        <userTask id="registerUser"
+                  name="Register User"
+                  flowable:assignee="${initiator}" />
+
+        <!-- CREATE USER -->
+        <serviceTask id="createUser"
+                     name="Create User in ES"
+                     flowable:delegateExpression="${createUserDelegate}" />
+
+        <!-- MAIL -->
+        <serviceTask id="sendVerificationMail"
+                     name="Send Verification Mail"
+                     flowable:delegateExpression="${sendMailDelegate}" />
+
+        <!-- VERIFY MAIL -->
+        <userTask id="verifyEmail"
+                  name="Verify Email"
+                  flowable:assignee="${initiator}" >
+            <extensionElements>
+                <flowable:taskListener event="complete" delegateExpression="${emailVerifyListener}" />
+            </extensionElements>
+        </userTask>
+
+        <!-- LOGIN -->
+        <userTask id="loginUser" name="Login User" flowable:assignee="${initiator}">
+            <extensionElements>
+                <flowable:taskListener event="complete" delegateExpression="${loginListener}" />
+            </extensionElements>
+        </userTask>
+
+
+        <!-- SEND OTP -->
+        <serviceTask id="sendOtp"
+                     name="Send OTP"
+                     flowable:delegateExpression="${sendOtpDelegate}" />
+
+        <!-- ENTER OTP -->
+        <userTask id="enterOtp" name="Enter OTP" flowable:assignee="${initiator}">
+            <extensionElements>
+                <flowable:taskListener event="complete" delegateExpression="${otpVerifyListener}" />
+            </extensionElements>
+        </userTask>
+
+
+        <!-- ACTIVATE -->
+        <serviceTask id="activateUser"
+                     name="Activate User"
+                     flowable:delegateExpression="${activateUserDelegate}" />
+
+        <!-- END -->
+        <endEvent id="end" name="User Activated"/>
+
+        <!-- FLOW -->
+        <sequenceFlow id="f1" sourceRef="start" targetRef="registerUser"/>
+        <sequenceFlow id="f2" sourceRef="registerUser" targetRef="createUser"/>
+        <sequenceFlow id="f3" sourceRef="createUser" targetRef="sendVerificationMail"/>
+        <sequenceFlow id="f4" sourceRef="sendVerificationMail" targetRef="verifyEmail"/>
+        <sequenceFlow id="f5" sourceRef="verifyEmail" targetRef="loginUser"/>
+        <sequenceFlow id="f6" sourceRef="loginUser" targetRef="sendOtp"/>
+        <sequenceFlow id="f7" sourceRef="sendOtp" targetRef="enterOtp"/>
+        <sequenceFlow id="f8" sourceRef="enterOtp" targetRef="activateUser"/>
+        <sequenceFlow id="f9" sourceRef="activateUser" targetRef="end"/>
+
+    </process>
+
+</definitions>
